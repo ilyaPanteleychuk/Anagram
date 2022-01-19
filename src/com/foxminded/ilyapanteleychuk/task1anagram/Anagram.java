@@ -2,7 +2,7 @@ package com.foxminded.ilyapanteleychuk.task1anagram;
 
 public class Anagram {
 
-    public static String reverse(String inputWords) {
+    public String reverse(String inputWords) {
 
         char[] letters = inputWords.toCharArray();
         StringBuilder reversedString = new StringBuilder();
