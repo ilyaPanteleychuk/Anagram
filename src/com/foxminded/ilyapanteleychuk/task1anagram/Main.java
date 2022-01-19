@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Anagram anagram = new Anagram();
-        String outPut = anagram.reverse("ab2cd3e%f4jh");
+        String outPut = anagram.reverse("abc4de4fg!%ij");
         System.out.println(outPut);
     }       
 }
