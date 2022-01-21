@@ -4,6 +4,9 @@ public class Anagram {
 
     public String reverse(String input) {
 
+        if (input.isEmpty() || input.isBlank() || input == null) {
+            throw new NullPointerException("String can`t be empty");
+        }
         char[] letters = input.toCharArray();
         int i = 0;
         int j = letters.length - 1;
