@@ -1,81 +1,82 @@
 package com.foxminded.ilyapanteleychuk.task1anagram;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class AnagramTest {
 
     Anagram reversed;
+
     @BeforeEach
     public void instanceInitialize() {
         reversed = new Anagram();
     }
 
     @Test
-    void givenString_whenReverse_thenReturnReversedString() {
+    void reverse_shouldReverseString_whenInputIsString() {
         assertEquals("edcba", reversed.reverse("abcde"));
     }
 
     @Test
-    void givenSingleLetter_whenReverse_thenReturnLetter() {
+    void reverse_shouldReturnOneLetter_whenInputIsSingleLetter() {
         assertEquals("a", reversed.reverse("a"));
     }
 
     @Test
-    void givenStringWithDiffCases_whenReverse_thenReturnReversedString() {
+    void reverse_shouldReturnReversedString_whenLettersHaveDifferentCases() {
         assertEquals("ASJfjkkSKJHSFA", reversed.reverse("AFSHJKSkkjfJSA"));
     }
 
     @Test
-    void givenStringSameLetter_whenReverse_thenReturnReversedString() {
+    void reverse_shouldReturnSameString_whenInputIsSameLetter() {
         assertEquals("ffffff", reversed.reverse("ffffff"));
     }
 
     @Test
-    void givenNonLetterSymbols_whenReverse_thenReturnNotReversedNonLetterSymbols() {
+    void reverse_shouldNotReverseAnySymbol_whenInputHasSymbols() {
         assertEquals("#dc#b@a#", reversed.reverse("#ab#c@d#"));
     }
 
     @Test
-    void givenOneSpace_whenReverse_thenReturnReversedWithSpace() {
+    void reverse_shouldReverseWithSpace_whenInputHasSpace() {
         assertEquals("fe#d cb#a", reversed.reverse("ab#c de#f"));
     }
 
     @Test
-    void givenSeveralSpace_whenReverse_thenReturnReversedWithSpaces() {
+    void reverse_shouldReverseWithAllSpaces_whenInputHasSeveralSpaces() {
         assertEquals("ji#h gf#e dc@ba", reversed.reverse("ab#c de#f gh@ij"));
     }
 
     @Test
-    void givenEmptyString_whenReverse_thenReturnNullPointerException() {
+    void reverse_shouldThrowNullPointerException_whenInputIsEmpty() {
         assertThrows(NullPointerException.class, () -> {
             reversed.reverse("");
         });
     }
 
     @Test
-    void givenWhiteSpaces_whenReverse_thenReturnNullPointerException() {
+    void reverse_shouldThrowNullPointerException_whenInputHasOnlySpaces() {
         assertThrows(NullPointerException.class, () -> {
             reversed.reverse("  ");
         });
     }
 
     @Test
-    void givenNull_whenReverse_thenReturnNullPointerException() {
+    void reverse_shouldThrowNullPointerException_whenInputIsNull() {
         assertThrows(NullPointerException.class, () -> {
             reversed.reverse(null);
         });
     }
 
     @Test
-    void givenStringOfNumbers_whenReverse_thenReturnSameString() {
+    void reverse_shouldNotReverseAnyNumber_whenInputHasOnlyNumbers() {
         assertEquals("12345", reversed.reverse("12345"));
     }
 
     @Test
-    void givenStringOfSymbols_whenReverse_thenReturnSameString() {
+    void reverse_shouldNotReverseAnySymbols_whenInputHasOnlySymbols() {
         assertEquals("#%#%#!$#", reversed.reverse("#%#%#!$#"));
     }
 }
