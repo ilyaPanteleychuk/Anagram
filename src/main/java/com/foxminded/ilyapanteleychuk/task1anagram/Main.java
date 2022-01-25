@@ -6,5 +6,5 @@ public class Main {
         Anagram anagram = new Anagram();
         String outPut = anagram.reverse("abc4de4fg!%ij");
         System.out.println(outPut);
-    }       
+    }
 }
